@@ -1,0 +1,27 @@
+version: "3.7"
+
+volumes:
+  cockpitcms__data:
+    driver: local
+  cockpitcms__config:
+    driver: local
+
+services:
+  cockpitcms:
+    image: agentejo/cockpit:latest
+    container_name: cockpitcms
+    volumes:
+      - type: volume
+        source: cockpitcms__data
+        target: /var/www/html/storage
+        volume:
+          nocopy: false
+      - type: volume
+        source: cockpitcms__config
+        target: /var/www/html/config
+        volume:
+          nocopy: false
+    env_file:
+      - ./docker-compose.env
+    ports:
+      - "7320:80"
