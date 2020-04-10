@@ -1,0 +1,31 @@
+version: "3.7"
+
+volumes:
+  mysql_server-8.0__data:
+    driver: local
+  mysql_server-8.0__config:
+    driver: local
+
+services:
+  mysql_server-8.0:
+    container_name: mysql_server-8.0
+    image: mysql:8.0
+    network_mode: "bridge"
+    volumes:
+      - type: bind
+        source: ./init.sql
+        target: /docker-entrypoint-initdb.d/init.sql
+      - type: volume
+        source: mysql_server-8.0__data
+        target: /etc
+        volume:
+          nocopy: false
+      - type: volume
+        source: mysql_server-8.0__config
+        target: /var/lib/mysql
+        volume:
+          nocopy: false
+    env_file:
+      - ./docker-compose.env
+    ports:
+      - "3306:3306"

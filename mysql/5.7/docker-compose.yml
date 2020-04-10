@@ -1,0 +1,31 @@
+version: "3.7"
+
+volumes:
+  mysql_server-5.7__data:
+    driver: local
+  mysql_server-5.7__config:
+    driver: local
+
+services:
+  mysql_server-5.7:
+    container_name: mysql_server-5.7
+    image: mysql:5.7
+    network_mode: "bridge"
+    volumes:
+      - type: bind
+        source: ./init.sql
+        target: /docker-entrypoint-initdb.d/init.sql
+      - type: volume
+        source: mysql_server-5.7__data
+        target: /etc
+        volume:
+          nocopy: false
+      - type: volume
+        source: mysql_server-5.7__config
+        target: /var/lib/mysql
+        volume:
+          nocopy: false
+    env_file:
+      - ./docker-compose.env
+    ports:
+      - "3306:3306"
