@@ -1,0 +1,5 @@
+CREATE USER 'devel'@'%' IDENTIFIED BY 'devel';
+GRANT ALL PRIVILEGES ON *.* TO 'devel'@'%';
+FLUSH PRIVILEGES;
+CREATE SCHEMA development;
+CREATE SCHEMA testing;
