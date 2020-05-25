@@ -1,6 +1,6 @@
-version: '3.7'
+version: "3.7"
 services:
-  pg:
+  postgres-latest:
     image: postgres:latest
     ports:
       - "5432:5432"
