@@ -1,0 +1,29 @@
+version: "3.7"
+
+volumes:
+  rabbitmq-latest__data:
+    driver: local
+  rabbitmq-latest__config:
+    driver: local
+
+services:
+  rabbitmq-latest:
+    container_name: rabbitmq-latest
+    image: rabbitmq:management
+    network_mode: "bridge"
+    volumes:
+      - type: volume
+        source: rabbitmq-latest__config
+        target: /etc/rabbitmq
+        volume:
+          nocopy: false
+      - type: volume
+        source: rabbitmq-latest__data
+        target: /var/lib/rabbitmq
+        volume:
+          nocopy: false
+    env_file:
+      - ./docker-compose.env
+    ports:
+      - "5672:5672"
+      - "15672:15672"
