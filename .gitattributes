@@ -1,0 +1,4 @@
+*.yml text eol=lf linguist-detectable
+*.env text eol=lf linguist-detectable
+*.md  text eol=lf linguist-detectable
+*.sql text eol=lf linguist-detectable
