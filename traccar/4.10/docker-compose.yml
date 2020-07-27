@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  traccar-4.10:
+    container_name: traccar-4.10
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    network_mode: "bridge"
+    env_file:
+      - ./docker-compose.env
+    ports:
+      - "8082:8082"
