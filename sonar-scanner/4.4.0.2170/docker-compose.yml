@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  sonar-scanner-4.4.0.2170:
+    container_name: sonar-scanner-4.4.0.2170
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    env_file:
+      - ./docker-compose.env
