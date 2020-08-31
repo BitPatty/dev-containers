@@ -4,7 +4,7 @@ A collection of docker-compose files for local development compatible with the W
 
 ## Usage
 
-Enter the directory of the desired service and run `docker-compose up -d`. If you don't have `docker-comopose` installed read the [instructions in the docker docs](https://docs.docker.com/compose/install/) on how to install it.
+Enter the directory of the desired service and run `docker-compose up -d`. If you don't have `docker-compose` installed read the [instructions in the docker docs](https://docs.docker.com/compose/install/) on how to install it.
 
 ## List of Images
 
