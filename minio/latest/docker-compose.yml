@@ -7,7 +7,7 @@ volumes:
 services:
   minio-latest:
     container_name: minio-latest
-    image: minio:latest
+    image: minio/minio:latest
     network_mode: "bridge"
     volumes:
       - type: volume
@@ -15,6 +15,7 @@ services:
         target: /data
         volume:
           nocopy: false
+    command: server /data
     env_file:
       - ./docker-compose.env
     ports:
