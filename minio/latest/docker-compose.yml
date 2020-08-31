@@ -1,0 +1,21 @@
+version: "3.7"
+
+volumes:
+  minio-latest__data:
+    driver: local
+
+services:
+  minio-latest:
+    container_name: minio-latest
+    image: minio:latest
+    network_mode: "bridge"
+    volumes:
+      - type: volume
+        source: minio-latest__data
+        target: /data
+        volume:
+          nocopy: false
+    env_file:
+      - ./docker-compose.env
+    ports:
+      - "9000:9000"
