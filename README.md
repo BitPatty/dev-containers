@@ -12,6 +12,7 @@ Enter the directory of the desired service and run `docker-compose up -d`. If yo
 | ----------------------- | ----- | ----------- | ----------- |
 | CockpitCMS              | 7320  | -           | -           |
 | MariaDB 10.1            | 3306  | devel       | devel       |
+| MariaDB 10.5.8          | 3306  | devel       | devel       |
 | MariaDB (Latest)        | 3306  | devel       | devel       |
 | Minio (Latest)          | 9000  | minio_devel | minio_devel |
 | MongoDB (Latest)        | 27017 | root        | root        |

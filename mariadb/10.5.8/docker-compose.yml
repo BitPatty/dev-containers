@@ -1,0 +1,31 @@
+version: '3.7'
+
+volumes:
+  mariadb-10.5.9__data:
+    driver: local
+  mariadb-10.5.9__config:
+    driver: local
+
+services:
+  mariadb-10.5.9:
+    container_name: mariadb-10.5.9
+    image: mariadb:10.5.9
+    network_mode: 'bridge'
+    volumes:
+      - type: bind
+        source: ./init.sql
+        target: /docker-entrypoint-initdb.d/init.sql
+      - type: volume
+        source: mariadb-10.5.9__data
+        target: /etc
+        volume:
+          nocopy: false
+      - type: volume
+        source: mariadb-10.5.9__config
+        target: /var/lib/mysql
+        volume:
+          nocopy: false
+    env_file:
+      - ./docker-compose.env
+    ports:
+      - '3306:3306'
