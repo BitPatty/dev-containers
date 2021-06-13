@@ -8,18 +8,22 @@ Enter the directory of the desired service and run `docker-compose up -d`. If yo
 
 ## List of Images
 
-| Image                   | Port  | Username    | Password    |
-| ----------------------- | ----- | ----------- | ----------- |
-| CockpitCMS              | 7320  | -           | -           |
-| MariaDB 10.1            | 3306  | devel       | devel       |
-| MariaDB 10.5.8          | 3306  | devel       | devel       |
-| MariaDB 10.5.9          | 3306  | devel       | devel       |
-| MariaDB (Latest)        | 3306  | devel       | devel       |
-| Minio (Latest)          | 9000  | minio_devel | minio_devel |
-| MongoDB (Latest)        | 27017 | root        | root        |
-| MySQL 5.7               | 3306  | devel       | devel       |
-| MySQL (Latest)          | 3306  | devel       | devel       |
-| Postgres (Latest)       | 5432  | postgres    | root        |
-| RabbitMQ (Latest)       | 15672 | devel       | devel       |
-| SonarScanner 4.4.0.2170 | -     | -           | -           |
-| Traccar 4.10            | 8082  | -           | -           |
+| Image                   | Port                                                                  | Username    | Password    |
+| ----------------------- | --------------------------------------------------------------------- | ----------- | ----------- |
+| CockpitCMS              | 7320                                                                  | -           | -           |
+| Elasticsearch 7.10.2*   | 9200 (Elasticsearch)<br />5601 (Kibana)<br />3002 (Enterprise Search) | elastic     | elastic     |
+| MariaDB 10.1            | 3306                                                                  | devel       | devel       |
+| MariaDB 10.5.8          | 3306                                                                  | devel       | devel       |
+| MariaDB 10.5.9          | 3306                                                                  | devel       | devel       |
+| MariaDB (Latest)        | 3306                                                                  | devel       | devel       |
+| Minio (Latest)          | 9000                                                                  | minio_devel | minio_devel |
+| MongoDB (Latest)        | 27017                                                                 | root        | root        |
+| MySQL 5.7               | 3306                                                                  | devel       | devel       |
+| MySQL (Latest)          | 3306                                                                  | devel       | devel       |
+| Postgres (Latest)       | 5432                                                                  | postgres    | root        |
+| RabbitMQ (Latest)       | 15672                                                                 | devel       | devel       |
+| SonarScanner 4.4.0.2170 | -                                                                     | -           | -           |
+| Traccar 4.10            | 8082                                                                  | -           | -           |
+
+
+* _You might have to change the [max_map_count](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#docker-prod-prerequisites)_
