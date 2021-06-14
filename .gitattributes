@@ -5,3 +5,5 @@
 
 Dockerfile    text eol=lf linguist-detectable
 *.Dockerfile  text eol=lf linguist-detectable
+
+*.png binary

@@ -1,12 +1,27 @@
 # dev-containers
 
-A collection of docker-compose files for local development compatible with the WSL2 docker engine.
+![DOCKERIZED SERVICES!](./magic.png)
+
+## Bunch of bla bla (=>  jump to [Usage](#usage))
+
+This repository contains some docker-compose files created to make developer lives easier. The goal is to have ready to run services without requiring any kind of additional user configuration. In essence, it should eliminate the following timewasters:
+
+- Looking up how to setup usernames/passwords
+- Looking up which directories need to be bound to volumes to persist the data
+- Trying to figure out how to make a docker-compose file WSL compatible
+- Allowing a user to easily switch between different versions of the same service
+- Having to remember credentials
+- Worrying about some service cluttering your file system
+- Having to deal with OS Services to shut down a database
+
+While these compose files don't cover every use case they're a good starting point. Note that the compose files and configurations are created on demand (i.e. whenever I need something) and that they are adjusted to my own needs.
 
 ## Usage
 
-Enter the directory of the desired service and run `docker-compose up -d`. If you don't have `docker-compose` installed read the [instructions in the docker docs](https://docs.docker.com/compose/install/) on how to install it.
+1. You need [Docker](https://docker.com). If you're not on Windows or MacOS you also have to install [Docker Compose](https://docs.docker.com/compose/install/)
+2. Enter the directory of the desired service/version and run `docker-compose up -d`.
 
-## List of Images
+## List of Containers
 
 | Image                     | Port                                                                  | Username    | Password    |
 | ------------------------- | --------------------------------------------------------------------- | ----------- | ----------- |
