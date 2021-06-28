@@ -16,7 +16,7 @@ the variables in `docker-compose.env`.
 ## Connect into pg prompt in container
 
 ```
-docker exec -it postgres-container psql -U postgres
+docker exec -it postgres-container psql -U devel
 ```
 
 ## Import export from postgres container
