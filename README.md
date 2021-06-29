@@ -35,7 +35,7 @@ While these compose files don't cover every use case they're a good starting poi
 | MongoDB (Latest)          | 27017                                                                 | root        | root        |
 | MySQL 5.7                 | 3306                                                                  | devel       | devel       |
 | MySQL (Latest)            | 3306                                                                  | devel       | devel       |
-| Postgres (Latest)         | 5432                                                                  | postgres    | root        |
+| Postgres (Latest)         | 5432                                                                  | devel       | devel       |
 | RabbitMQ (Latest)         | 15672                                                                 | devel       | devel       |
 | SonarScanner 4.4.0.2170   | -                                                                     | -           | -           |
 | Traccar 4.10              | 8082                                                                  | -           | -           |
