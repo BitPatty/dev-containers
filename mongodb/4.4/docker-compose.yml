@@ -1,0 +1,28 @@
+version: "3.7"
+
+volumes:
+  mongo-4.4__data:
+    driver: local
+  mongo-4.4__config:
+    driver: local
+
+services:
+  mongo-4.4:
+    container_name: mongo-4.4
+    image: mongo:4.4
+    network_mode: "bridge"
+    volumes:
+      - type: volume
+        source: mongo-4.4__data
+        target: /data/db
+        volume:
+          nocopy: false
+      - type: volume
+        source: mongo-4.4__config
+        target: /data/configdb
+        volume:
+          nocopy: false
+    env_file:
+      - ./docker-compose.env
+    ports:
+      - "27017:27017"

@@ -2,7 +2,7 @@
 
 ![DOCKERIZED SERVICES!](./magic.png)
 
-## Bunch of bla bla (=>  jump to [Usage](#usage))
+## Bunch of bla bla (=> jump to [Usage](#usage))
 
 This repository contains some docker-compose files created to make developer lives easier. The goal is to have ready to run services without requiring any kind of additional user configuration. In essence, it should eliminate the following timewasters:
 
@@ -32,6 +32,7 @@ While these compose files don't cover every use case they're a good starting poi
 | MariaDB 10.5.9            | 3306                                                                  | devel       | devel       |
 | MariaDB (Latest)          | 3306                                                                  | devel       | devel       |
 | Minio (Latest)            | 9000                                                                  | minio_devel | minio_devel |
+| MongoDB 4.4               | 27017                                                                 | root        | root        |
 | MongoDB (Latest)          | 27017                                                                 | root        | root        |
 | MySQL 5.7                 | 3306                                                                  | devel       | devel       |
 | MySQL (Latest)            | 3306                                                                  | devel       | devel       |
@@ -39,6 +40,5 @@ While these compose files don't cover every use case they're a good starting poi
 | RabbitMQ (Latest)         | 15672                                                                 | devel       | devel       |
 | SonarScanner 4.4.0.2170   | -                                                                     | -           | -           |
 | Traccar 4.10              | 8082                                                                  | -           | -           |
-
 
 (\*) _You might have to change the [max_map_count](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#docker-prod-prerequisites)_
