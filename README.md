@@ -23,26 +23,27 @@ While these compose files don't cover every use case they're a good starting poi
 
 ## List of Containers
 
-| Image                                | Port                                                                  | Username    | Password    |
-| ------------------------------------ | --------------------------------------------------------------------- | ----------- | ----------- |
-| CockpitCMS                           | 7320                                                                  | -           | -           |
-| Elasticsearch 7.10.2 (Cluster\*)     | 9200 (Elasticsearch)<br />5601 (Kibana)<br />3002 (Enterprise Search) | elastic     | elastic     |
-| Elasticsearch 7.10.2 (Single-Node)   | 9200 (Elasticsearch)<br />5601 (Kibana)<br />3002 (Enterprise Search) | elastic     | elastic     |
-| Imgproxy                             | 8100                                                                  | -           | -           |
-| MariaDB 10.1                         | 3306                                                                  | devel       | devel       |
-| MariaDB 10.5.8                       | 3306                                                                  | devel       | devel       |
-| MariaDB 10.5.9                       | 3306                                                                  | devel       | devel       |
-| MariaDB (Latest)                     | 3306                                                                  | devel       | devel       |
-| Minio (RELEASE.2021-06-17T00-10-46Z) | 9000 (old console)                                                    | minio_devel | minio_devel |
-| Minio (Latest)                       | 9000<br />9001 (new console)                                          | minio_devel | minio_devel |
-| MongoDB 4.4                          | 27017                                                                 | root        | root        |
-| MongoDB (Latest)                     | 27017                                                                 | root        | root        |
-| MySQL 5.7                            | 3306                                                                  | devel       | devel       |
-| MySQL (Latest)                       | 3306                                                                  | devel       | devel       |
-| Postgres (Latest)                    | 5432                                                                  | devel       | devel       |
-| RabbitMQ (Latest)                    | 15672                                                                 | devel       | devel       |
-| Redis (Latest)                       | 6379                                                                  | -           | -           |
-| SonarScanner 4.4.0.2170              | -                                                                     | -           | -           |
-| Traccar 4.10                         | 8082                                                                  | -           | -           |
+| Image                                | Port                                                                  | Username/Key | Password/Secret |
+| ------------------------------------ | --------------------------------------------------------------------- | ------------ | --------------- |
+| CockpitCMS                           | 7320                                                                  | -            | -               |
+| Elasticsearch 7.10.2 (Cluster\*)     | 9200 (Elasticsearch)<br />5601 (Kibana)<br />3002 (Enterprise Search) | elastic      | elastic         |
+| Elasticsearch 7.10.2 (Single-Node)   | 9200 (Elasticsearch)<br />5601 (Kibana)<br />3002 (Enterprise Search) | elastic      | elastic         |
+| Imgproxy (Latest / Signed)           | 8100                                                                  | devel        | devel           |
+| Imgproxy (Latest)                    | 8100                                                                  | -            | -               |
+| MariaDB (Latest)                     | 3306                                                                  | devel        | devel           |
+| MariaDB 10.1                         | 3306                                                                  | devel        | devel           |
+| MariaDB 10.5.8                       | 3306                                                                  | devel        | devel           |
+| MariaDB 10.5.9                       | 3306                                                                  | devel        | devel           |
+| Minio (Latest)                       | 9000<br />9001 (new console)                                          | minio_devel  | minio_devel     |
+| Minio (RELEASE.2021-06-17T00-10-46Z) | 9000 (old console)                                                    | minio_devel  | minio_devel     |
+| MongoDB (Latest)                     | 27017                                                                 | root         | root            |
+| MongoDB 4.4                          | 27017                                                                 | root         | root            |
+| MySQL (Latest)                       | 3306                                                                  | devel        | devel           |
+| MySQL 5.7                            | 3306                                                                  | devel        | devel           |
+| Postgres (Latest)                    | 5432                                                                  | devel        | devel           |
+| RabbitMQ (Latest)                    | 15672                                                                 | devel        | devel           |
+| Redis (Latest)                       | 6379                                                                  | -            | -               |
+| SonarScanner 4.4.0.2170              | -                                                                     | -            | -               |
+| Traccar 4.10                         | 8082                                                                  | -            | -               |
 
 (\*) _You might have to change the [max_map_count](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#docker-prod-prerequisites)_
