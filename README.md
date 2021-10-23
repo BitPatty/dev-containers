@@ -26,7 +26,8 @@ While these compose files don't cover every use case they're a good starting poi
 | Image                                | Port                                                                  | Username    | Password    |
 | ------------------------------------ | --------------------------------------------------------------------- | ----------- | ----------- |
 | CockpitCMS                           | 7320                                                                  | -           | -           |
-| Elasticsearch 7.10.2 (\*)            | 9200 (Elasticsearch)<br />5601 (Kibana)<br />3002 (Enterprise Search) | elastic     | elastic     |
+| Elasticsearch 7.10.2 (Cluster\*)     | 9200 (Elasticsearch)<br />5601 (Kibana)<br />3002 (Enterprise Search) | elastic     | elastic     |
+| Elasticsearch 7.10.2 (Single-Node)   | 9200 (Elasticsearch)<br />5601 (Kibana)<br />3002 (Enterprise Search) | elastic     | elastic     |
 | MariaDB 10.1                         | 3306                                                                  | devel       | devel       |
 | MariaDB 10.5.8                       | 3306                                                                  | devel       | devel       |
 | MariaDB 10.5.9                       | 3306                                                                  | devel       | devel       |
