@@ -39,6 +39,7 @@ While these compose files don't cover every use case they're a good starting poi
 | MySQL (Latest)                       | 3306                                                                  | devel       | devel       |
 | Postgres (Latest)                    | 5432                                                                  | devel       | devel       |
 | RabbitMQ (Latest)                    | 15672                                                                 | devel       | devel       |
+| Redis (Latest)                       | 6379                                                                  | -           | -           |
 | SonarScanner 4.4.0.2170              | -                                                                     | -           | -           |
 | Traccar 4.10                         | 8082                                                                  | -           | -           |
 

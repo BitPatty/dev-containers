@@ -1,27 +1,9 @@
 version: "3.7"
-
-# volumes:
-#   mongo-latest__data:
-#     driver: local
-#   mongo-latest__config:
-#     driver: local
-
 services:
   redis-latest:
     container_name: redis-latest
     image: redis:latest
     network_mode: "bridge"
-    # volumes:
-    #   - type: volume
-    #     source: mongo-latest__data
-    #     target: /data/db
-    #     volume:
-    #       nocopy: false
-    #   - type: volume
-    #     source: mongo-latest__config
-    #     target: /data/configdb
-    #     volume:
-    #       nocopy: false
     env_file:
       - ./docker-compose.env
     ports:
