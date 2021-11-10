@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  redis-latest:
+    container_name: redis-latest
+    image: redis:latest
+    network_mode: "bridge"
+    env_file:
+      - ./docker-compose.env
+    ports:
+      - "6379:6379"

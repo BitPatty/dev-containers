@@ -1,0 +1,47 @@
+version: '3.7'
+
+networks:
+  elasticsearch-7.10.2-network:
+    name: elasticsearch-7.10.2-network
+    driver: bridge
+
+volumes:
+  elasticsearch-7.10.2__data:
+    driver: local
+
+services:
+  elasticsearch-7.10.2:
+    container_name: elasticsearch-7.10.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.2
+    networks:
+      - elasticsearch-7.10.2-network
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - type: volume
+        source: elasticsearch-7.10.2__data
+        target: /usr/share/elasticsearch/data
+        volume:
+          nocopy: false
+    ports:
+      - 9200:9200
+      - 5601:5601
+      - 3002:3002
+    env_file:
+      - ./docker-compose.env
+
+  kibana-7.10.2:
+    container_name: kibana-7.10.2
+    image: docker.elastic.co/kibana/kibana:7.10.2
+    network_mode: service:elasticsearch-7.10.2
+    env_file:
+      - ./kibana.env
+
+  enterprise-search-7.10.2:
+    container_name: enterprise-search-7.10.2
+    image: docker.elastic.co/enterprise-search/enterprise-search:7.10.2
+    network_mode: service:elasticsearch-7.10.2
+    env_file:
+      - enterprise-search.env
