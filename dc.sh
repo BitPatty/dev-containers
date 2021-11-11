@@ -38,9 +38,9 @@ done < <(find $1 -type f -name 'docker-compose.yml' | sort | sed "s/[/]/ /g" | s
 
 # Create the dialog
 TERMINAL=$(tty)
-HEIGHT=20
+HEIGHT=30
 WIDTH=76
-CHOICE_HEIGHT=16
+CHOICE_HEIGHT=25
 TITLE="Service Selector"
 MENU="Choose a service:"
 
