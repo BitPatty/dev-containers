@@ -1,6 +1,8 @@
 # dev-containers
 
-![DOCKERIZED SERVICES!](./magic.png)
+<center>
+<img src="https://github.com/BitPatty/dev-containers/raw/master/magic.png" height="200">
+</center>
 
 ## Bunch of bla bla (=> jump to [Usage](#usage))
 
@@ -48,3 +50,11 @@ While these compose files don't cover every use case they're a good starting poi
 | Redis (Latest)                                                                                                                                                                                  | `6379`                                                                      | -              | -                |
 | SonarScanner 4.4.0.2170                                                                                                                                                                         | -                                                                           | -              | -                |
 | Traccar 4.10                                                                                                                                                                                    | `8082`                                                                      | -              | -                |
+
+## DC.sh
+
+This repository contains a [dc.sh](./dc.sh) helper script for bash that simplifies the process of starting the services. It performs pre-condition checks to make sure the required ports are available, and if not, attempts to stop the associated containers before running a new service.
+
+To use it simply run `bash ./dc.sh`:
+
+![DC Preview](./dc_preview.png)
