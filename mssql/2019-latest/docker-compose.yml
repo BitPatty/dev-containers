@@ -1,0 +1,28 @@
+version: '3.7'
+
+volumes:
+  mssql-2019-latest__data:
+    driver: local
+  mssql-2019-latest__config:
+    driver: local
+
+services:
+  mssql-2019-latest:
+    container_name: mssql-2019-latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    network_mode: 'bridge'
+    volumes:
+      - type: volume
+        source: mssql-2019-latest__data
+        target: /var/opt/mssql
+        volume:
+          nocopy: false
+      - type: volume
+        source: mssql-2019-latest__config
+        target: /var/opt/config
+        volume:
+          nocopy: false
+    ports:
+      - '1433:1433'
