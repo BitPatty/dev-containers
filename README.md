@@ -1,6 +1,7 @@
+<center>
+
 # dev-containers
 
-<center>
 <img src="https://github.com/BitPatty/dev-containers/raw/master/magic.png" height="200">
 </center>
 
