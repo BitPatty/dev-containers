@@ -4,7 +4,7 @@ set -e
 
 if ! command -v dialog &> /dev/null
 then
-    echo "dialog is required (apt-get install dialog)"    
+    echo "Missing dependency 'dialog' -> apt-get install dialog"
     exit 1
 fi
 
@@ -19,7 +19,9 @@ trap clear_before_exit SIGTERM
 
 # The location of this script
 SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+cd $SCRIPTPATH
 export DIALOGRC="${SCRIPTPATH}/.dialogrc"
+
 
 # Get the available directories containing docker-compose declarations
 declare -a OPTIONS
@@ -27,7 +29,7 @@ i=1
 j=1
 
 while read line
-do     
+do
   OPTIONS[ $i ]=$j
   (( j++ ))
   OPTIONS[ ($i + 1) ]=$line
@@ -65,8 +67,46 @@ SELECTED_DIR=`echo "${SELECTED}" | sed "s/ /\//g"`
 echo "Using ${SELECTED_DIR}"
 cd "${SCRIPTPATH}/${SELECTED_DIR}"
 
-# Stop the container in caes it is already running
-docker-compose stop
+# Free the port if it already used by a different container
+echo "Checking port availability.."
+PORT_BINDINGS=`docker-compose config | grep -E "^ +- published: [0-9]+$" | sed "s/- published://g" | sed "s/ //g"`
+
+if [ -z "${PORT_BINDINGS}" ]
+then
+  echo "'$SELECTED' uses no published ports"
+  docker-compose up -d
+  exit 0
+fi
+
+while read PORT
+do
+  echo "Checking $PORT"
+  NETSTAT_RESULT=`netstat -antp 2>/dev/null` || exit 1
+  BOUND=`echo ${NETSTAT_RESULT} | grep $PORT || true`
+
+  if [ -z "${BOUND}" ]
+  then
+    echo "Port $PORT appears to be available"
+    continue
+  fi
+
+  echo "Port $line is in already in use use"
+  echo "Checking if used by docker container.."
+  DOCKER_BINDING=`docker container ls --filter publish=$PORT --format "{{.ID}}\t{{.Names}}\t{{.Ports}}"`
+
+  if [ -z "${DOCKER_BINDING}" ]
+  then
+    echo "Port $PORT is not used by a docker container, exiting"
+    exit 1
+  fi
+
+  CONTAINER_ID=`echo "${DOCKER_BINDING}" | cut -f 1`
+  CONTAINER_NAME=`echo "${DOCKER_BINDING}" | cut -f 2`
+  echo "Port is in use by ${CONTAINER_NAME} (${CONTAINER_ID}), stopping container"
+  docker stop "${CONTAINER_ID}" > /dev/null
+  echo "Container stopped"
+done < <(echo "${PORT_BINDINGS}")
 
 # Start
-docker-compose up
+echo "Starting container"
+docker-compose up -d
