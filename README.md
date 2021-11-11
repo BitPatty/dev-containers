@@ -16,6 +16,8 @@ This repository contains some docker-compose files created to make developer liv
 
 While these compose files don't cover every use case they're a good starting point. Note that the compose files and configurations are created on demand (i.e. whenever I need something) and that they are adjusted to my own needs.
 
+> The configuration of each service is self contained in their respective directory to allow for copying over only the services you need.
+
 ## Usage
 
 1. You need [Docker](https://docker.com). If you're not on Windows or MacOS you also have to install [Docker Compose](https://docs.docker.com/compose/install/)
