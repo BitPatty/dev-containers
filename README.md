@@ -1,9 +1,8 @@
-<center>
+<h1 align="center">dev containers</h1>
 
-# dev-containers
-
-<img src="https://github.com/BitPatty/dev-containers/raw/master/magic.png" height="200">
-</center>
+<p align="center">
+  <img src="https://github.com/BitPatty/dev-containers/raw/master/magic.png" height="200">
+</p>
 
 ## Bunch of bla bla (=> jump to [Usage](#usage))
 
