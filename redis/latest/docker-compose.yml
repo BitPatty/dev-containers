@@ -8,3 +8,4 @@ services:
       - ./docker-compose.env
     ports:
       - "6379:6379"
+    command: redis-server --requirepass devel
